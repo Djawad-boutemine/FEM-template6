@@ -5,6 +5,7 @@ let main = document.querySelector("main");
 let states = [];
 for (let i = 0; i < btns.length; i++) { states.push(false) };
 console.log(states);
+let add = 0 ;
 for (let i = 0; i < btns.length; i++) {
     btns[i].onclick = function () {
         if (!states[i]) {
@@ -12,13 +13,15 @@ for (let i = 0; i < btns.length; i++) {
             questions[i].classList.add("selected");
             answers[i].style.cssText = " display : inline-block";
             states[i] = !states[i];
-
-            main.style.height = 100+ 7*i + "vh" ;
+            add++ ;
+            main.style.height = 100+ add*7 + "vh" ;
         }else {
             btns[i].style.cssText = "transform : rotate(0deg)";
             questions[i].classList.remove("selected");
             answers[i].style.cssText = " display : none";
             states[i] = !states[i];
+            add-- ;
+            main.style.height = 100+ add*7 + "vh" ;
         }
     }
 }
