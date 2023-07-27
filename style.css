@@ -1,0 +1,147 @@
+:root {
+    /* hover colors */
+    --cl-dark-blue: hsl(238, 29%, 16%);
+    --cl-orange: hsl(14, 88%, 65%);
+    /* grandiet colors */
+    --cl-start: hsl(273, 75%, 66%);
+    --cl-end: hsl(240, 73%, 65%);
+    /* text colors */
+    --cl-questions: hsl(237, 12%, 33%);
+    --cl-answers: hsl(240, 6%, 50%);
+}
+
+* {
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+main {
+    width: 100%;
+    background-image: linear-gradient(var(--cl-start), var(--cl-end));
+    display: grid;
+    place-items: center;
+}
+
+.container {
+    display: flex;
+    background-color: white;
+    border-radius: 1.3em;
+    box-shadow: 0px 20px 20px 2px rgb(0 0 0 / 23%);
+    padding: 1.5em;
+}
+
+.images {
+    background-repeat: no-repeat;
+}
+
+.text {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+h1 {
+    font-weight: 700;
+    text-align: center;
+    margin: 0.2em;
+}
+
+.text div div  {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.text>div>p {
+    display: none;
+    color: var(--cl-answers);
+}
+
+.text>div {
+    border-bottom: 1px solid hsla(240, 12%, 68%, 0.416);
+}
+
+
+.text div div p {
+    color: var(--cl-questions);
+    display: inline-block;
+}
+
+.selected {
+    color: var(--cl-dark-blue);
+    font-weight: bold;
+}
+
+.text div button {
+    background-color: white;
+    border: none;
+}
+
+
+
+@media (max-width: 749px) {
+    main {
+        height: 100vh;
+        /* max-height: 125vh; */
+    }
+    .container {
+        height: calc(100% - 20em);
+        width: 21em;
+        flex-flow: column nowrap;
+    }
+
+    .container::after {
+        content: "";
+        background-image: url(bg-pattern-mobile.svg);
+        width: 15em;
+        aspect-ratio: 1/1;
+        background-repeat: no-repeat;
+        transform: translate(1.3em, -1em);
+        position: absolute;
+    }
+
+    .container::before {
+        content: "";
+        position: absolute;
+        background-image: url(illustration-woman-online-mobile.svg);
+        background-repeat: no-repeat;
+        width: 15em;
+        aspect-ratio: 1/1;
+        transform: translate(1.4em, -8.3em);
+    }
+
+    .text {
+        transform: translateY(7em);
+        height: 60%;
+    }
+
+    .text>div {
+        padding: 1em 0;
+    }
+
+    .text div p {
+        font-size: 0.9em;
+    }
+
+    .text>div>p {
+        font-size: 0.8em;
+        width: 95%;
+        padding-top: 0.5em;
+    }
+}
+
+@media (min-width: 750px) {
+    .container {
+        width: calc(15em + 60vw);
+        height: 70vh;
+    }
+
+    .top {
+        background-image: url(illustration-woman-online-desktop.svg);
+    }
+
+    .shadow {
+        background-image: url(./bg-pattern-desktop.svg);
+    }
+    .text div div p:hover {
+        color: var(--cl-orange);
+    }
+}
