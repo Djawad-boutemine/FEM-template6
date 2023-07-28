@@ -26,7 +26,6 @@ main {
     background-color: white;
     border-radius: 1.3em;
     box-shadow: 0px 20px 20px 2px rgb(0 0 0 / 23%);
-    padding: 1.5em;
 }
 
 .images {
@@ -40,11 +39,10 @@ main {
 
 h1 {
     font-weight: 700;
-    text-align: center;
-    margin: 0.2em;
+    margin: 0.2em 0;
 }
 
-.text div div  {
+.text div div {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -78,14 +76,22 @@ h1 {
 
 
 @media (max-width: 749px) {
+
     main {
         height: 100vh;
-        /* max-height: 125vh; */
     }
+
     .container {
-        height: calc(100% - 20em);
+        height: calc(100% - 15em);
         width: 21em;
         flex-flow: column nowrap;
+        padding: 1.5em;
+
+    }
+
+    h1 {
+        text-align: center;
+
     }
 
     .container::after {
@@ -130,17 +136,67 @@ h1 {
 
 @media (min-width: 750px) {
     .container {
-        width: calc(15em + 60vw);
-        height: 70vh;
+        width: calc(15em + 40vw);
+        height: calc(100% - 20em);
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        padding: 3em;
+        position: relative;
+        align-items: center;
     }
 
-    .top {
+
+    .text {
+        width: 50%;
+    }
+
+    h1 {
+        text-align: left;
+        font-size: 2em;
+    }
+
+    .container::after {
+        content: "";
         background-image: url(illustration-woman-online-desktop.svg);
+        background-repeat: no-repeat;
+        aspect-ratio: 1.5/1.14;
+        width: calc(10em + 35vh);
+        background-size: cover;
+        position: absolute;
+        top: 50%;
+        transform: translatey(-50%);
+        left: -3%;
     }
 
-    .shadow {
+    .container::before {
+        content: "";
         background-image: url(./bg-pattern-desktop.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* aspect-ratio: 1.5/1.14; */
+        aspect-ratio: 1/1;
+        width: calc(20em + 20vh);
+        position: absolute;
+        top: calc(50% + 0.5em);
+        transform: translatey(-50%);
+        left: -4%;
     }
+
+    .text>div {
+        padding: 1.5em 0; 
+    }
+
+    .text div p {
+        font-size: 1.2em;
+
+    }
+
+    .text>div>p {
+        font-size: 1em;
+        width: 90%;
+        padding-top: 1em;
+    }
+
     .text div div p:hover {
         color: var(--cl-orange);
     }
